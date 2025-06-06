@@ -1,8 +1,17 @@
 import pandas as pd
 import joblib
+import requests
+from io import BytesIO
 
 # Load trained model
-model = joblib.load("smoking_predictor_compressed.pkl")
+# model = joblib.load("smoking_predictor_compressed.pkl")
+
+# Model Load from Google Drive
+file_id = "1CG9XmuwZSXHcJdBtFZ4brtZNUrEiuoIg"
+url = f"https://drive.google.com/uc?export=download&id={file_id}"
+
+response = requests.get(url)
+model = joblib.load(BytesIO(response.content))
 
 # Input widgets with units
 sex_widget = widgets.RadioButtons(options=['Male', 'Female'], description='Sex:')
