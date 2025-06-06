@@ -1,8 +1,3 @@
-!pip install streamlit
-!pip install pandas
-!pip install scikit-learn
-!pip install joblib
-
 import pandas as pd
 import joblib
 import ipywidgets as widgets
