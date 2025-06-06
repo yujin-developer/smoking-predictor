@@ -4,14 +4,13 @@ import requests
 from io import BytesIO
 import gdown
 
-# Google Drive 공유 파일 ID
-file_id = "1CG9XmuwZSXHcJdBtFZ4brtZNUrEiuoIg"
-output_path = "smoking_predictor_compressed.pkl"
+# Google Drive에서 모델 파일 다운로드
+file_id = "1ODV76nTt25sles3hwNVJ6dMcsu0JSTVE"
+output_path = "smoking_model.pkl"
 
-# gdown으로 다운로드
 gdown.download(f"https://drive.google.com/uc?id={file_id}", output_path, quiet=False)
 
-# 모델 로드
+# 모델 불러오기
 model = joblib.load(output_path)
 
 # Input widgets with units
