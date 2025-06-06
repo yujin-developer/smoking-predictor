@@ -2,16 +2,17 @@ import pandas as pd
 import joblib
 import requests
 from io import BytesIO
+import gdown
 
-# Load trained model
-# model = joblib.load("smoking_predictor_compressed.pkl")
-
-# Model Load from Google Drive
+# Google Drive 공유 파일 ID
 file_id = "1CG9XmuwZSXHcJdBtFZ4brtZNUrEiuoIg"
-url = f"https://drive.google.com/uc?export=download&id={file_id}"
+output_path = "smoking_predictor_compressed.pkl"
 
-response = requests.get(url)
-model = joblib.load(BytesIO(response.content))
+# gdown으로 다운로드
+gdown.download(f"https://drive.google.com/uc?id={file_id}", output_path, quiet=False)
+
+# 모델 로드
+model = joblib.load(output_path)
 
 # Input widgets with units
 sex_widget = widgets.RadioButtons(options=['Male', 'Female'], description='Sex:')
