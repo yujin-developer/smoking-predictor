@@ -1,7 +1,5 @@
 import pandas as pd
 import joblib
-import ipywidgets as widgets
-from IPython.display import display, clear_output
 
 # Load trained model
 model = joblib.load("smoking_predictor.pkl")
