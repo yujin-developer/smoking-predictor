@@ -2,7 +2,7 @@ import pandas as pd
 import joblib
 
 # Load trained model
-model = joblib.load("smoking_predictor.pkl")
+model = joblib.load("smoking_predictor_compressed.pkl")
 
 # Input widgets with units
 sex_widget = widgets.RadioButtons(options=['Male', 'Female'], description='Sex:')
